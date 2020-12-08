@@ -2534,6 +2534,13 @@ puts("'How did that peguin get my back info and my phone number");
 			{
 					while(choice != 99)
 					{
+							srand(time(NULL));
+							int mn=5;
+							int x, y, z, g;
+							int a, b, c;
+							int randy= 1 + rand()%6;
+							int die1=0, die2=0, die3=0, die4=0, die5=0, die6=0;
+							int input=0;
 							puts("Entered Moises' room");
 							puts("You open the door and see 5 doors which one do you choose?...");
 							puts("Choose an option below (Enter 99 to quit)");	
@@ -2546,29 +2553,27 @@ puts("'How did that peguin get my back info and my phone number");
 							{		
 								case 1:
 									puts("Door is cold to the touch");
+									puts("As you walk into the room you realize you are in a cold dark cave");
 									puts("What do you do first");
  									puts("1.Do you try and build a fire?");
-									puts("2.Do you look for warm clothing?");
-   									puts("3.Do you tough it out?");
+   									puts("2.Do you wait for someone to find you?");
 									scanf("%d", &choice);
 									switch (choice)
 									{
 										case 1:
 											puts("Do you even know how to start a fire?");
-	       										puts("Of course you don't, but luckily there is a lighter in front of you");
-					       						puts("You find some dried up branches and leaves and light them");
-						                                        puts("So now that the fire is started what do you do");
+	       									puts("Of course you don't, but luckily there is a lighter in your front pocket");
+					       					puts("You find some dried up branches and leaves and light them");
+						                    puts("So now that the fire is started what do you do");
 			  								puts("1. Look for food");
-	 										puts("2. Find something to put on");
-      											puts("3. Nothing, ill stay wasrm by the fire.");
+      										puts("2. Nothing, ill stay warm by the fire.");
 		 									scanf("%d", &choice);
 											break;		
-										case 2:
-    											puts("Smart move need to get some clothes luckily theres clothes right next to you");
-											break;                                                                   
-				   						case 3:
+										                                                                   
+				   						case 2:
   											puts("I too like to live dangerously");
 											puts("But you really shouldve chosen something else");
+											choice=99;
 			 								break;
 	   									default:
 	   										puts("Try again");
@@ -2576,7 +2581,46 @@ puts("'How did that peguin get my back info and my phone number");
 									}
       									break;
       								case 2:
-      									puts("Who left the heater on?");
+      									puts("Let's play a game");
+										puts("Select a number of times you want to roll a die.");
+										scanf("%d",&input);
+										for(i=0;i<input;i++)
+										{
+											y = 1 + rand()%6;
+											
+											switch(y)
+											{
+												case 1:
+													die1++;
+													break;
+									
+												case 2:
+													die2++;
+													break;
+									
+												case 3:
+													die3++;
+													break;
+									
+												case 4:
+													die4++;
+													break;
+									
+												case 5:
+													die5++;
+													break;
+									
+												case 6:
+													die6++;
+													break;
+													
+												default:
+													break;
+											}
+																				
+										}
+										printf("You rolled %d ones, %d twos, %d threes, %d fours, %d fives, %d sixes\n", die1,die2,die3,die4,die5,die6);
+										choice=99;
 									break;
      								case 3:
        									puts("You fall from the sky towards the ground");
@@ -2599,14 +2643,71 @@ puts("'How did that peguin get my back info and my phone number");
 	 							case 4:
 									puts("There is a strange man in front of you");
 									puts("1.Do you approach him? or 2. Do you ignore him?");
+									scanf("%d", &choice);
+									switch(choice)
+									{
+										case 1:
+											puts("He turns and asks you to choose a number 1-10");
+											scanf("%d", &k);
+												if (k<1)
+													{
+														printf("you entered a number less than 1 \n");
+														puts("Maybe you should follow the rules next time");
+														choice=99;
+													}
+												else if (k>10)
+													{
+														printf("you entered a number greater than 10 \n");
+														puts("Maybe you should follow the rules next time");
+														choice=99;
+													}
+												else
+												{
+													printf("you entered %d \n", k);
+										
+													a = mn + k;
+													printf("%d + magic number = %d \n",k, a);
+											
+											
+													b = mn * k;
+													printf("%d * magic number = %d \n",k, b);
+											
+													c = k - mn;
+													printf("%d - magic number = %d \n",k, c);
+													
+													printf("Guess the magic number: ");
+													scanf("%d", &g);
+													
+													if (g==mn)
+													{
+														puts("Correct, you win");
+														choice=99;
+													}
+													
+													else
+													{
+														puts("Incorrect, you lose");
+														choice=99;		
+													}
+												}
+										break;
+												
+										case 2:
+											puts("Wells thats no fun");
+											choice=99;
+											break;
+													
+											
+											
+									}
 	  								break;
+									
        								default:
 									printf("Door is locked cannot open \n");
 									break;
 							}
 					}
 			}
-							
 			case 23:
 			{
 					while(choice != 99)
